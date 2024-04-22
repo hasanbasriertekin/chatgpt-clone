@@ -6,21 +6,20 @@ import  { useState }  from "react";
 
 const App = () => {
 
+    // eslint-disable-next-line no-unused-vars
+    const [value, setValue] = useState(null)
+    // eslint-disable-next-line no-unused-vars
+    const [message, setMessage] = useState(null)
+    const [previousChats, setPreviousChats] = useState([])
+    const [currentTitle, setCurrentTitle] = useState(null)
+
+    const createNewChat= () => {
+      setMessage(null)
+      setValue("")
+      setCurrentTitle(null)
+  }
+
 const getMessages = async () => {
-
-      // eslint-disable-next-line no-unused-vars
-      const [value, setValue] = useState(null)
-      // eslint-disable-next-line no-unused-vars
-      const [message, setMessage] = useState(null)
-      const [previousChats, setPreviousChats] = useState([])
-      const [currentTitle, setCurrentTitle] = useState(null)
-
-      // eslint-disable-next-line no-unused-vars
-      const createNewChat= () => {
-          setMessage(null)
-          setValue("")
-          setCurrentTitle(null)
-      }
 
       const options = {
         method :"POST",
@@ -47,7 +46,7 @@ const getMessages = async () => {
       }
       if(currentTitle && value && message){
 
-        setPreviousChat(PrevChats => (
+        setPreviousChats(PrevChats => (
           [...PrevChats, {
             title: currentTitle,
             role: "user",
