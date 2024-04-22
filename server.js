@@ -11,7 +11,7 @@ app.use(cors())
 // eslint-disable-next-line no-undef
 const API_KEY = process.env.OPENAI_API_KEY
 
-app.post(`/completions`, async (reg, res) => {
+app.post(`/completions`, async (req, res) => {
 
     const options= {
         method:"POST",
@@ -21,7 +21,7 @@ app.post(`/completions`, async (reg, res) => {
         },
         body: JSON.stringify({
             model:"gpt-3.5-turbo",
-            messages: [{role:"user", content:"how are you?"}],
+            messages: [{role:"user", content:req.body.message}],
             max_tokens:1000,
         })
     }
