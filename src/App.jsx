@@ -59,7 +59,7 @@ const App = () => {
         },
       ]);
     }
-  }, [message, currentTitle, value]);
+  }, [message, currentTitle]);
 
   const currentChat = previousChats.filter((previousChat) => previousChat.title === currentTitle);
   const uniqueTitles = Array.from(new Set(previousChats.map((previousChat) => previousChat.title)));
